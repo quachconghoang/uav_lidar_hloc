@@ -22,3 +22,14 @@ def rotate_point(point, angle, origin=(0, 0)):
     qx = ox + math.cos(angle) * (px - ox) - math.sin(angle) * (py - oy)
     qy = oy + math.sin(angle) * (px - ox) + math.cos(angle) * (py - oy)
     return [qx, qy]
+
+
+def get_nearest_timestamps(traj_time, lidar_time, image_time):
+    nearest_lidar = []
+    nearest_image = []
+
+    for t in traj_time:
+        nearest_lidar.append(min(lidar_time, key=lambda x: abs(x - t)))
+        nearest_image.append(min(image_time, key=lambda x: abs(x - t)))
+
+    return nearest_lidar, nearest_image

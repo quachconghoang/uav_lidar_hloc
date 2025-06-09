@@ -69,8 +69,13 @@ plt.axis('equal')
 plt.plot([p[0] for p in gps_xy], [p[1] for p in gps_xy], marker='o', markersize=1, linestyle='-', color='red')
 plt.plot([p[0] for p in traj_xy], [p[1] for p in traj_xy], marker='o', markersize=1, linestyle='-', color='blue')
 # add index text to each every 20th point in traj_xy
-for i in range(0, len(traj_xy), 20):
+for i in range(100, len(traj_xy), 20):
     plt.text(traj_xy[i][0], traj_xy[i][1], str(i), fontsize=8, color='blue')
+    t = traj_time[i]
+    nearest_gps_time = min(gps_time, key=lambda x: abs(x - t))
+    nearest_gps_index = gps_time.index(nearest_gps_time)
+    gt = gps_xy[nearest_gps_index]
+    plt.text(gt[0], gt[1], str(i), fontsize=8, color='red')
 # add index to each point in gps_xy
 plt.title('Adjusted GPS and Traj XY Plot')
 # set units as meters
