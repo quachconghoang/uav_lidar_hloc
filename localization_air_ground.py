@@ -43,7 +43,7 @@ model = reconstruction.main(sfm_dir, images, sfm_pairs, feature_path, match_path
 colmap model_aligner \
     --input_path ./sfm_superpoint+superglue \
     --output_path ./sfm_scaled \
-    --database_path ./sfm_superpoint+superglue/database.db \
+    --database_path ./sfm_superpoint+superglue/database.db \ (--ref_images_path /path/to/text-file)
     --ref_is_gps 1 \
     --alignment_type enu \
     --alignment_max_error 3.0
