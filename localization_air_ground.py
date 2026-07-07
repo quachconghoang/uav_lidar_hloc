@@ -18,8 +18,8 @@ outputs = Path("outputs/sfm/")
 sfm_pairs = outputs / "pairs-eigenplaces.txt"
 sfm_dir = outputs / "sfm_superpoint+superglue"
 
-retrieval_conf = extract_features.confs["megaloc"]
-# retrieval_conf = extract_features.confs["eigenplaces"]
+# retrieval_conf = extract_features.confs["megaloc"]
+retrieval_conf = extract_features.confs["eigenplaces"]
 feature_conf = extract_features.confs["superpoint_aachen"]
 matcher_conf = match_features.confs["superglue"]
 
